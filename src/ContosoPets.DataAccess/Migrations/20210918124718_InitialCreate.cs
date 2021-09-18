@@ -49,7 +49,7 @@ namespace ContosoPets.DataAccess.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderPlaced = table.Column<DateTime>(nullable: false),
-                    OrderFullfiled = table.Column<DateTime>(nullable: true),
+                    OrderFulfilled = table.Column<DateTime>(nullable: true),
                     CustomerId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

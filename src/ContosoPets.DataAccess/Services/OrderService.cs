@@ -27,8 +27,8 @@ namespace ContosoPets.DataAccess.Services
           {
             OrderId = o.Id,
             CustomerName = $"{o.Customer.LastName}, {o.Customer.FirstName}",
-            OrderFulfilled = o.OrderFullfiled.HasValue ?
-                  o.OrderFullfiled.Value.ToShortDateString() : string.Empty,
+            OrderFulfilled = o.OrderFulfilled.HasValue ?
+                  o.OrderFulfilled.Value.ToShortDateString() : string.Empty,
             OrderPlaced = o.OrderPlaced.ToShortDateString(),
             OrderLineItems = (
                   from po in o.ProductOrders
@@ -56,8 +56,8 @@ namespace ContosoPets.DataAccess.Services
           {
             OrderId = o.Id,
             CustomerName = $"{o.Customer.LastName}, {o.Customer.FirstName}",
-            OrderFulfilled = o.OrderFullfiled.HasValue ?
-                  o.OrderFullfiled.Value.ToShortDateString() : string.Empty,
+            OrderFulfilled = o.OrderFulfilled.HasValue ?
+                  o.OrderFulfilled.Value.ToShortDateString() : string.Empty,
             OrderPlaced = o.OrderPlaced.ToShortDateString(),
             OrderLineItems = (
                   from po in o.ProductOrders
@@ -90,7 +90,7 @@ namespace ContosoPets.DataAccess.Services
 
       if (order != null)
       {
-        order.OrderFullfiled = DateTime.UtcNow;
+        order.OrderFulfilled = DateTime.UtcNow;
         _context.Entry(order).State = EntityState.Modified;
         await _context.SaveChangesAsync();
         isFulfilled = true;

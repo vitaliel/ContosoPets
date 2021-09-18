@@ -70,7 +70,7 @@ namespace ContosoPets.DataAccess.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("OrderFullfiled")
+                    b.Property<DateTime?>("OrderFulfilled")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("OrderPlaced")
