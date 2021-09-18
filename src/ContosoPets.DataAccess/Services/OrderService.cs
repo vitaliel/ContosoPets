@@ -45,6 +45,7 @@ namespace ContosoPets.DataAccess.Services
 
     private IQueryable<Order> GetOrderById(int id) =>
         from o in _context.Orders.AsNoTracking()
+                                 .TagWith(nameof(GetOrderById))
         where o.Id == id
         select o;
 
@@ -68,7 +69,9 @@ namespace ContosoPets.DataAccess.Services
                   }
               )
           }
-      ).FirstOrDefaultAsync();
+      )
+      .TagWith(nameof(GetById))
+      .FirstOrDefaultAsync();
 
       return order;
     }

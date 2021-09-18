@@ -31,7 +31,9 @@ namespace ContosoPets.Api
       // Console.WriteLine("Db: " + defaultConnectionString);
 
       services.AddDbContext<ContosoPetsContext>(
-        options => options.UseSqlServer(defaultConnectionString)
+        options => options
+          .UseSqlServer(defaultConnectionString)
+          .EnableSensitiveDataLogging(Configuration.GetValue<bool>("Logging:EnableSqlParameterLogging"))
       );
 
       services.AddControllers();
