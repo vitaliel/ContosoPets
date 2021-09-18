@@ -83,7 +83,7 @@ namespace ContosoPets.DataAccess.Services
       return newOrder;
     }
 
-    public async Task<bool> Setfulfilled(int id)
+    public async Task<bool> SetFulfilled(int id)
     {
       bool isFulfilled = false;
       Order order = await GetOrderById(id).FirstOrDefaultAsync();
